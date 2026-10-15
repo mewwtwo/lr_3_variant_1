@@ -8,7 +8,17 @@
 
 #include "plan/plan.hpp"
 
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <windows.h>
+#endif
+
 int main() {
+#ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+#endif
+
     std::osyncstream(std::cout) << "Обчислення розпочато.\n";
     auto start = std::chrono::steady_clock::now();
 

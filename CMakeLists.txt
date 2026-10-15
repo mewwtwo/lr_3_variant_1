@@ -15,7 +15,11 @@ add_executable(prog
 target_include_directories(prog PRIVATE src)
 target_link_libraries(prog PRIVATE Threads::Threads)
 
-if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+if(APPLE AND CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     target_compile_options(prog PRIVATE -fexperimental-library)
     target_link_options(prog PRIVATE -fexperimental-library)
+endif()
+
+if(MINGW)
+    target_link_options(prog PRIVATE -static)
 endif()
