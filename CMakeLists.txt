@@ -9,9 +9,9 @@ find_package(Threads REQUIRED)
 
 add_executable(prog
     src/main.cpp
-    src/plan/plan.cpp
-    src/scheme/scheme.cpp
-    src/work/work.cpp)
+    src/schedule/schedule.cpp
+    src/dependencies/dependencies.cpp
+    src/action/action.cpp)
 target_include_directories(prog PRIVATE src)
 target_link_libraries(prog PRIVATE Threads::Threads)
 

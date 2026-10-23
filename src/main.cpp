@@ -6,7 +6,7 @@
 #include <thread>
 #include <vector>
 
-#include "plan/plan.hpp"
+#include "schedule/schedule.hpp"
 
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
@@ -24,9 +24,9 @@ int main() {
 
     {
         std::vector<std::jthread> threads;
-        threads.reserve(nt);
-        for (int t = 0; t < nt; ++t) {
-            threads.emplace_back(worker, t);
+        threads.reserve(thread_count);
+        for (int thread_index = 0; thread_index < thread_count; ++thread_index) {
+            threads.emplace_back(run_thread_schedule, thread_index);
         }
     }
 
