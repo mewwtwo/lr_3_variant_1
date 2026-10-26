@@ -18,7 +18,7 @@ std::latch set_k_finished{4};
 std::latch set_c_finished{8};
 std::latch set_d_finished{5};
 
-}  // namespace
+}
 
 void execute_action(char set_name, int action_number) {
     switch (set_name) {

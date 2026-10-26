@@ -26,7 +26,7 @@ const std::vector<ScheduledAction> thread_schedules[thread_count] = {
      {'d', 2}, {'d', 5}, {'c', 7}, {'f', 5}},
 };
 
-}  // namespace
+}
 
 void run_thread_schedule(int thread_index) {
     for (const ScheduledAction& action : thread_schedules[thread_index]) {
